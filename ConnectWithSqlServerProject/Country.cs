@@ -8,15 +8,18 @@ using System.Threading.Tasks;
 
 namespace ConnectWithSqlServerProject
 {
-    class Country 
+    public class Country
     {
-        public const string connectionString = "Data Source=MUM-LAP-1597\\SQLEXPRESS;Initial Catalog=EMPLOYEE;Integrated Security=True";
-        public SqlConnection sqlConnection = new SqlConnection(connectionString);
         public int CountryId { get; set; }
-        public string  CountryName { get; set; }
+        public string CountryName { get; set; }
         public int PersonId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+
+        public const string connectionString = "Data Source=MUM-LAP-1597\\SQLEXPRESS;Initial Catalog=EMPLOYEE;Integrated Security=True";
+        public SqlConnection sqlConnection = new SqlConnection(connectionString);
+
         public List<Country> GetCountries()
         {
             var listCountries = new List<Country>();

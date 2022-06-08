@@ -12,9 +12,6 @@ namespace ConnectWithSqlServerProject
     {
         public string GenderName { get; set; }
         public int GenderId { get; set; }
-        public int PersonId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public const string connectionString = "Data Source=MUM-LAP-1597\\SQLEXPRESS;Initial Catalog=EMPLOYEE;Integrated Security=True";
         public SqlConnection sqlConnection = new SqlConnection(connectionString);
 
@@ -31,16 +28,13 @@ namespace ConnectWithSqlServerProject
                 {
                     GenderId = (int)reader[0],
                     GenderName = reader[1].ToString(),
-                    PersonId = (int)reader[2],
-                    FirstName = reader[3].ToString(),
-                    LastName = reader[4].ToString(),
                 };
                 listGenders.Add(gender);
             }
             Console.WriteLine("Gender Details");
             foreach (var list in listGenders)
             {
-                Console.WriteLine("\t{0}\t{1}\t{2}\t{3}\t{4}", list.GenderId, list.GenderName, list.PersonId, list.FirstName, list.LastName);
+                //Console.WriteLine("\t{0}\t{1}\t{2}\t{3}\t{4}", list.GenderId, list.GenderName, list.PersonId, list.FirstName, list.LastName);
             }
             reader.Close();
             sqlConnection.Close();

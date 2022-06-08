@@ -10,21 +10,17 @@ namespace ConnectWithSqlServerProject
 {
     class Person
     {
-        public int CountryId { get; set; }
+       
         public int PersonId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string GenderName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public int Age { get; set; }
         public string Email { get; set; }
         public long TelephoneNo { get; set; }
-        public string AddressLine1 { get; set; }
-        public string AddressLine2 { get; set; }
-        public string City { get; set; }
-        public string CountryName { get; set; }
-        public int Pincode { get; set; }
-        public string State { get; set; }
+        public PersonAddress PersonAddress { get; set; }
+        public Gender Gender { get; set; }
+
         public const string connectionString = "Data Source=MUM-LAP-1597\\SQLEXPRESS;Initial Catalog=EMPLOYEE;Integrated Security=True";
         public SqlConnection sqlConnection = new SqlConnection(connectionString);
 
@@ -39,26 +35,36 @@ namespace ConnectWithSqlServerProject
             {
                 Person person = new Person
                 {
-                    PersonId = (int)reader[0],
+                    PersonId = (int)reader["PersonId"],
                     FirstName = reader[1].ToString(),
                     LastName = reader[2].ToString(),
                     Age = (int)reader[3],
-                    GenderName = reader[4].ToString(),
+                    //GenderName = reader[4].ToString(),
                     DateOfBirth = (DateTime)reader[5],
                     Email = reader[6].ToString(),
                     TelephoneNo = (long)reader[7],
-                    AddressLine1 = reader[8].ToString(),
-                    AddressLine2 = reader[9].ToString(),
-                    City = reader[10].ToString(),
-                    CountryName = reader[11].ToString(),
-                    Pincode = (int)reader[12],
-                    State = reader[13].ToString(),
+                    //PersonAddress.AddressLine1 = reader[8].ToString(),
+                    //AddressLine2 = reader[9].ToString(),
+                    //City = reader[10].ToString(),
+                    //CountryName = reader[11].ToString(),
+                    //Pincode = (int)reader[12],
+                    //State = reader[13].ToString(),
                 };
+                //person address
+                person.PersonAddress = new PersonAddress();
+                person.PersonAddress.AddressLine1 = "";
+
+                //person country
+
+                //person gender
+
+                //person state
+
                 listPersons.Add(person);
             }
             foreach (var list in listPersons)
             {
-                Console.WriteLine($"{list.PersonId}\t{list.FirstName}\t{list.LastName}\t{list.Age}\t{list.GenderName}\t{list.DateOfBirth}\t{list.Email}\t{list.TelephoneNo}\t{list.AddressLine1}\t{list.AddressLine2}\t{list.City}\t{list.CountryName}\t{list.Pincode}\t{list.State}");
+                //Console.WriteLine($"{list.PersonId}\t{list.FirstName}\t{list.LastName}\t{list.Age}\t{list.GenderName}\t{list.DateOfBirth}\t{list.Email}\t{list.TelephoneNo}\t{list.AddressLine1}\t{list.AddressLine2}\t{list.City}\t{list.CountryName}\t{list.Pincode}\t{list.State}");
                 Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }
             //foreach (var list in listPersons)
@@ -86,18 +92,18 @@ namespace ConnectWithSqlServerProject
                         FirstName = reader[1].ToString(),
                         LastName = reader[2].ToString(),
                         Age = (int)reader[3],
-                        GenderName = reader[4].ToString(),
+                        //GenderName = reader[4].ToString(),
                         DateOfBirth = (DateTime)reader[5],
                         Email = reader[6].ToString(),
                         TelephoneNo = (long)reader[7],
-                        AddressLine1 = reader[8].ToString(),
-                        AddressLine2 = reader[9].ToString(),
-                        City = reader[10].ToString(),
-                        CountryName = reader[11].ToString(),
-                        Pincode = (int)reader[12],
+                        //AddressLine1 = reader[8].ToString(),
+                        //AddressLine2 = reader[9].ToString(),
+                        //City = reader[10].ToString(),
+                        //CountryName = reader[11].ToString(),
+                        //Pincode = (int)reader[12],
                     };
                     Console.WriteLine("Details By Passing Employee Id");
-                    Console.WriteLine($"{person.PersonId}\t{person.FirstName}\t{person.LastName}\t{person.Age}\t{person.GenderName}\t{person.DateOfBirth}\t{person.Email}\t{person.TelephoneNo}\t{person.AddressLine1}\t{person.AddressLine2}\t{person.City}\t{person.CountryName}\t{person.Pincode}");
+                    //Console.WriteLine($"{person.PersonId}\t{person.FirstName}\t{person.LastName}\t{person.Age}\t{person.GenderName}\t{person.DateOfBirth}\t{person.Email}\t{person.TelephoneNo}\t{person.AddressLine1}\t{person.AddressLine2}\t{person.City}\t{person.CountryName}\t{person.Pincode}");
                 }
                 else
                 {
